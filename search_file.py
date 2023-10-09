@@ -1,12 +1,11 @@
-import string
-tokenString = input(("Введите токен: "))
+tokenInput = input(("Введите токен: "))
 def searchFile(name):
     f = open("file_token/1234.txt")
     tokenRead = f.readline()
 
     r = open("file_token/5678.txt")
     tokenRead2 = r.readline()
-    token = tokenString
+    token = tokenInput
     if token == tokenRead:
         token = tokenRead
 
