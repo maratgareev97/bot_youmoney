@@ -1,31 +1,35 @@
 import yookassa
+import uuid
 
 import Token
 
+
 def creat_Oplata():
-    yookassa.Configuration.account_id = Token.api_id
+    yookassa.Configuration.account_id = Token.Api_id
     yookassa.Configuration.secret_key = Token.Api_key
 
     payment = yookassa.Payment.create({
-        "amout" : {
-            "value": 100,
-            "currency" : "RUB"
+        "amount": {
+            "value": "100.00",
+            "currency": "RUB"
         },
         "confirmation": {
             "type": "redirect",
-            "return_URL": "https://t.me/ShamilgareevBot"
+            "return_url": "https://www.example.com/return_url"
         },
-        "description": "Покупка чего-либо",
-        "capture": True
-    })
+        "capture": True,
+        "description": "Заказ №1"
+    },  uuid.uuid4())
 
-    url = payment.configuration.configuration_url
 
-    return  url, payment.id
+    url = payment.confirmation.confirmation_url
+
+    return url, payment.id
+
 
 def oplata_chek(id):
     payment = yookassa.Payment.find_one(id)
     if payment.status == "succeeded":
         return True
     else:
-        return  False
+        return False

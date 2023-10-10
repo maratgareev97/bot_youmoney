@@ -9,6 +9,9 @@ import klava
 bot = Bot(Token.Token)
 dp = Dispatcher(bot)
 
+@dp.message_handler(commands=['start'])
+async def process_start_command(message: types.Message):
+    await message.reply("Привет!\nНапиши мне что-нибудь!")
 
 @dp.message_handler(commands=["Pay"])
 async def pay(message: types.Message):
@@ -26,5 +29,5 @@ async def chek(call: types.CallbackQuery):
         else:
             await  bot.send_message(chat_id=call.from_user.id, text="Оплата прошла с ошибкой ошибок!")
 
-    if __name__ == "__mail__":
-        executor.start_polling(dp, skip_updates=True)
+if __name__ == "__main__":
+    executor.start_polling(dp, skip_updates=True)
