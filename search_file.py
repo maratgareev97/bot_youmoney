@@ -10,4 +10,4 @@ def searchFile(name):
         fileRead = "Такой файл не найден!"
     return fileRead
 
-print(searchFile("12121212"))
+print(searchFile("12"))
