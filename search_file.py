@@ -1,18 +1,13 @@
-tokenInput = input(("Введите токен: "))
+fileInput = input()
 def searchFile(name):
-    f = open("file_token/1234.txt")
-    tokenRead = f.readline()
-
-    r = open("file_token/5678.txt")
-    tokenRead2 = r.readline()
-    token = tokenInput
-    if token == tokenRead:
-        token = tokenRead
-
-    elif token == tokenRead2:
-        token = tokenRead2
+    if fileInput == "1234":
+        f = open("file_token/1234.txt")
+        fileRead = f.readline()
+    elif fileInput == "5678":
+        f = open("file_token/5678.txt")
+        fileRead = f.readline()
     else:
-        token = "Токен не найден!"
-    return token
+        fileRead = "Такой файл не найден!"
+    return fileRead
 
-print(searchFile("12121212"))
+print(searchFile("12"))
