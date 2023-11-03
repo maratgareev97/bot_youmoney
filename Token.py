@@ -1,4 +1,4 @@
-Token = "6505773378:AAHVQp5t65YYo6RmggBKBxBqkzT2URTAfpo"
+Token = "6505773378:AAFLt6wO5uXI_MMTH2Qgi4j6ImhhUZQ1d5w"
 
 Api_key = "test_7iWPAeQpK-YPLmYtA_lfTcTHeR57sHHOoelAMPPt1w4"
 
