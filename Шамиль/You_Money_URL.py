@@ -4,13 +4,13 @@ import uuid
 import Token
 
 
-def creat_Oplata():
+def creat_Oplata(money):
     yookassa.Configuration.account_id = Token.Api_id
     yookassa.Configuration.secret_key = Token.Api_key
 
     payment = yookassa.Payment.create({
         "amount": {
-            "value": "100.00",
+            "value": money,
             "currency": "RUB"
         },
         "confirmation": {
