@@ -1,0 +1,10 @@
+{
+  'message_id': 496,
+  'from': <User {
+  "id": 6505773378,
+  "is_bot": true,
+  "first_name": "GGboy",
+  "username": "ShamilgareevBot"
+}, 'chat': Chat {"id": 5222353508, "first_name": "🤡", "username": "pItachok2009", "type": "private"}>, 'date': datetime.datetime(2023, 11, 5, 13, 7, 6), 'text': 'Какое действие вы хотите выполнить?', 'reply_markup': <InlineKeyboardMarkup {"inline_keyboard": [[{"text": "ССылка:", "url": "https://yoomoney.ru/checkout/payments/v2/contract?orderId=2cd97d0a-000f-5000-a000-18ff3f2d8966"}], [{"text": "Отправить QR", "callback_data": "????"}], [{"text": "Проверить оплату", "callback_data": "2cd97d0a-000f-5000-a000-18ff3f2d8966"}]]
+}>
+}
