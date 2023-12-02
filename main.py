@@ -10,9 +10,6 @@ import klava
 bot = Bot(Token.Token)
 dp = Dispatcher(bot)
 
-bot = Bot(Token.Token)
-dp = Dispatcher(bot)
-
 
 # @dp.message_handler(commands=['Bo'])
 # async def process_start_command(message: types.Message):
@@ -50,9 +47,9 @@ async def pay(message: types.Message):
 
         await  message.answer("Какое действие вы хотите выполнить?", reply_markup=klava.oplata(URL, payment))
 
-
-
         data = klava.oplata(URL, payment)
+
+        print(data)
 
         filename = "site.png"
 
@@ -60,26 +57,23 @@ async def pay(message: types.Message):
 
         img.save(filename)
     except:
-        await message.answer("Каким образом покупатель будет оплачивать текстовое сообщение?")
+        await message.answer("Каким образом клиент будет оплачивать текстовое сообщение!?")
 
 
 @dp.callback_query_handler()
-async def chek(call: types.CallbackQuery):
-    print(call.message.values)
-    if call.message["text"] == "Какое действие вы хотите выполнить?":
-        file_open= createFile();
+async def chek(call):
+    if call.data == "????":
+        print(call.message.values)
+        file_open = createFile();
         await bot.send_photo(call.from_user.id, file_open)
-
-    if call.message["text"] == "Какое действие вы хотите выполнить?":
+    else:
         answer = You_Money_URL.oplata_chek(call.data)
         if answer:
-            await  bot.send_message(chat_id=call.from_user.id, text="Оплата прошла без ошибок!")
+            await bot.send_message(chat_id=call.from_user.id, text="Оплата прошла без ошибок!")
         else:
-            await  bot.send_message(chat_id=call.from_user.id, text="Оплата прошла с ошибкой!")
-
+            await bot.send_message(chat_id=call.from_user.id, text="Оплата прошла с ошибкой!")
 
 
 if __name__ == "__main__":
-    executor.start(dp, send_message("здравствуйте, для какой суммы вам нужна оплата?"))
+    executor.start(dp, send_message("Здравствуйте, для какой суммы вам нужна оплата?"))
     executor.start_polling(dp, skip_updates=True)
-
